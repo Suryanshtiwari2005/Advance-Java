@@ -15,9 +15,13 @@
 
 	
 	${label} <br>
-	<!-- Expression Language -->
-
-	<c: out value="Hello World" />
+	<!-- Expression Language 
+	
+	<c:import url="http://www.telusko.com"></c:import> -->
+	
+	
+	
+	
 
 
 
