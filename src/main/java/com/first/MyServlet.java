@@ -11,17 +11,22 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/sq")
+@WebServlet("/addAlien")
 public class MyServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		PrintWriter out = response.getWriter();
-		out.print("Hi ");
 		
-		ServletConfig cg = getServletConfig();
-		String str = cg.getInitParameter("name");
-		out.println(str);
+		
+		int aid = Integer.parseInt(request.getParameter("aid"));
+		String aname = request.getParameter("aname");
+		
+		
+		
+		out.print("Hi "+aname);
+		
+		
 	}
 
 }
