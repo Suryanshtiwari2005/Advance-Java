@@ -1,28 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>String Split Example</title>
 </head>
 <body>
+
+    <c:set var="str" value="Hello Folks,What are you Doing Tonight Amara"/>
+    
+	<c:if test="${fn:endsWith(str,'Amara')}">
 	
-	<sql:setDataSource var="db" driver="com.mysql.cj.jdbc.Driver" url="jdbc:mysql://localhost:3306/sys" user="root" password="1234"/>
+		You are a Genius
+	</c:if>
 	
+	<c:set var="replace" value="${fn:replace(str,'Folks','Amara')}" />
+	<p>${replace}</p>
 	
-	<sql:query var="rs" dataSource="${db}">select * from employee</sql:query>
-	
-	<c:forEach items="${rs.rows}" var="employee">
-		<br> <c:out value="${employee.emp_id}" ></c:out> : <c:out value="${employee.first_name}" ></c:out> : <c:out value="${employee.last_name}" ></c:out>
-	
-	</c:forEach>
-	
+	${fn:toLowerCase(str)} <br>
+	${fn:toUpperCase(str)}
+
 </body>
 </html>
