@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 
 <!DOCTYPE html>
@@ -11,19 +13,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
 	
-	${label} <br>
-	<!-- Expression Language 
-	
-	<c:import url="http://www.telusko.com"></c:import> -->
+	<sql:setDataSource var="db" driver="com.mysql.cj.jdbc.Driver" url="jdbc:mysql://localhost:3306/mysql" user="root" password="1234"/>
 	
 	
+	<sql:query var="rs" dataSource="${db}">select * from employee</sql:query>
 	
+	<c:forEach items="${rs.rows}" var="employee">
+		<c:out value="${employee.emp_id}" ></c:out> : <c:out value="${employee.first_name}" ></c:out> : <c:out value="${employee.last_name}" ></c:out>
 	
-
-
-
+	</c:forEach>
+	
 </body>
 </html>
