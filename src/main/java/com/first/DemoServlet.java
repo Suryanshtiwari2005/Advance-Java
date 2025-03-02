@@ -19,6 +19,7 @@ public class DemoServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		
+		@SuppressWarnings("unused")
 		List<Student> studs = Arrays.asList(
 				new Student(1,"Suryansh"),
 				new Student(2,"Raj"),
